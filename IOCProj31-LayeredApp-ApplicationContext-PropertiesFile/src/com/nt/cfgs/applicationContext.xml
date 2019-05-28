@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+ <!-- Cfg DataSource bean -->
+ <bean id="drds"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     <property name="driverClassName" value="${jdbc.driver}"/>
+     <property name="url" value="${jdbc.url}"/>
+     <property name="username" value="${jdbc.user}"/>
+     <property name="password" value="${jdbc.pwd}"/> 
+ </bean>
+ 
+ <!-- Cfg PropertyPlaceholderConfigurer -->
+ <bean id="pphc"  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="locations">
+        <array>
+           <value>/com/nt/commons/jdbc2.properties</value>
+                 <value>/com/nt/commons/jdbc1.properties</value>
+        </array>
+      
+      </property>
+ </bean>
+ 
+<!-- Cfg DAO class -->
+ <bean id="empDAO" class="com.nt.dao.EmployeeDAOImpl">
+     <property name="ds" ref="drds"/>
+ </bean>
+ <!-- Cfg Service class -->
+  <bean id="empService"  class="com.nt.service.EmployeeServiceImpl">
+       <property name="dao"  ref="empDAO"/>
+  </bean>
+  <!-- Cfg Controller class -->
+  <bean id="empController"  class="com.nt.controller.EmployeeController">
+       <property name="service"  ref="empService"/>
+  </bean>
+
+</beans>

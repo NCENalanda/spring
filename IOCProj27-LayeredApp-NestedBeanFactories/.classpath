@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="D:/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="E:/Spring 3.2.9Soft/spring-framework-3.2.9.RELEASE/libs/spring-beans-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/Spring 3.2.9Soft/spring-framework-3.2.9.RELEASE/libs/spring-context-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/Spring 3.2.9Soft/spring-framework-3.2.9.RELEASE/libs/spring-context-support-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/Spring 3.2.9Soft/spring-framework-3.2.9.RELEASE/libs/spring-core-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/Spring 3.2.9Soft/spring-framework-3.2.9.RELEASE/libs/spring-expression-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/Spring 3.2.9Soft/spring-framework-3.2.9.RELEASE/libs/spring-jdbc-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/NR/Downloads/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

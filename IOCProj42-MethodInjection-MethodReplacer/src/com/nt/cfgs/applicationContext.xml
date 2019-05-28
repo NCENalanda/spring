@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+  <!-- cfg replacer -->
+  <bean id="irr"  class="com.nt.replacer.IntrAmountReplacer">
+      <property name="rate" value="1.2"/>
+  </bean>
+
+   <bean id="bank" class="com.nt.beans.BankService">
+      <replaced-method name="calcIntrAmt" replacer="irr">
+        <arg-type>float</arg-type>
+        <arg-type>float</arg-type>
+     </replaced-method> 
+   </bean>
+
+</beans>

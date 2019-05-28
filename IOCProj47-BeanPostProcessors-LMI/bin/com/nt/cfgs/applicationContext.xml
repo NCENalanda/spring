@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <!-- BO classses cfg -->
+  <bean id="stBO"  class="com.nt.bo.StudentBO"  scope="prototype"/>
+  <bean id="empBO"  class="com.nt.bo.EmployeeBO" scope="prototype"/>
+  <!-- DAO class cfg -->
+  <bean id="clgDAO"  class="com.nt.dao.CollegeDAOImpl" scope="singleton"/>
+  <!-- Service class cfg -->
+  <bean id="clgService"  class="com.nt.service.CollegeService"  scope="singleton">
+    <constructor-arg ref="clgDAO"/>
+    <lookup-method name="getStudentBO" bean="stBO"/>
+    <lookup-method name="getEmployeeBO" bean="empBO"/>
+  </bean>
+  
+  <!-- BPP configuration -->
+  <!-- <bean class="com.nt.bpp.BODOJBeanPostProccessor"/> -->
+  
+
+
+</beans>

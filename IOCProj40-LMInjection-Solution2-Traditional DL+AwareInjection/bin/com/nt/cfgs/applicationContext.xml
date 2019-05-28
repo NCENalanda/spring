@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- Cfg  dependent bean -->
+	<bean id="rh"  class="com.nt.beans.RequestHandler" scope="prototype"/>
+	
+	<!-- Cfg  target bean -->
+	<bean id="container"  class="com.nt.beans.WebContainer"  scope="singleton"  >
+	  <constructor-arg>
+	      <idref  bean="rh"/>
+	  </constructor-arg>
+	</bean>
+
+
+</beans>

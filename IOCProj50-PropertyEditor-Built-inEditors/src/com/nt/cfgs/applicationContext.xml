@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+ <!-- Spring bean cfg -->
+   <bean id="pspt"  class="com.nt.beans.PassportInfo">
+        <property name="passportNo"  value="9012345"/>
+        <property name="holderName"  value="raja"/>
+        <property name="country"  value="india"/>
+        <property name="gender"  value="M"/>
+        <property name="maritalStatus"  value="false"/>
+        <property name="mobileNumber"  value="999999999"/>
+        <property name="dob"  value="25/10/1997"/>
+        <property name="age"  value="21"/>
+        <property name="currentLocale"  value="hi_IN"/>
+        <property name="currentClass" value="java.lang.String"/>
+        <property name="fbUrl"  value="http://facebook.com/raja"/>
+        <property name="photoPath"  value="c:/abc/raja.png"/>
+            <property name="verifiers" value="modi,pappu"/>
+   </bean>
+
+</beans>

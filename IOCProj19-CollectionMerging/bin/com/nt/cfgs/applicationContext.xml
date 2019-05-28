@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+ <bean id="base1Year"   class="com.nt.beans.EnggCourse"  abstract="true">
+     <property name="subjects">
+       <list>
+         <value>M1</value>
+         <value>Physics</value>
+         <value>English</value>
+         </list>
+     </property>
+ </bean>
+ <bean id="ece1stYear"  class="com.nt.beans.EnggCourse" parent="base1Year">
+    <property name="subjects">
+         <list merge="true">
+            <value>EDC</value>
+         </list>
+    </property>
+ </bean>
+ <bean id="cs1stYear"  class="com.nt.beans.EnggCourse" parent="base1Year">
+    <property name="subjects">
+         <list  merge="true">
+            <value>C</value>
+         </list>
+    </property>
+ 
+ </bean>
+ 
+
+</beans>

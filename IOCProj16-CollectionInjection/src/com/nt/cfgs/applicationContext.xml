@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean id="dobDt" class="java.util.Date">
+		<constructor-arg name="year" value="94" />
+		<constructor-arg name="month" value="9" />
+		<constructor-arg name="date" value="10" />
+	</bean>
+
+	<bean id="dojDt" class="java.util.Date">
+		<property name="year" value="118" />
+		<property name="month" value="9" />
+	</bean>
+
+	<bean id="st" class="com.nt.beans.Student">
+		<property name="marks">
+			<array>
+				<value>55</value>
+				<value>56</value>
+				<value>78</value>
+			</array>
+		</property>
+		<property name="impDates">
+			<list>
+				<ref bean="dobDt" />
+				<ref bean="dojDt" />
+			</list>
+		</property>
+	</bean>
+	<bean id="cc" class="com.nt.beans.CountryClub">
+		<property name="names">
+			<list>
+				<value>raja</value>
+				<value>rani</value>
+				<value>raja</value>
+				<value>sita</value>
+				<value>amar</value>
+				<value>puspha</value>
+			</list>
+		</property>
+		<property name="impDates">
+			<list>
+				<ref bean="dobDt" />
+				<ref bean="dojDt" />
+				<ref bean="dobDt" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="pb"  class="com.nt.beans.PhoneBook">
+	    <property name="phones">
+	       <set>
+	          <value>999999999</value>
+	          <value>999999888</value>
+	          <value>777778888</value>
+	          <value>777778888</value>
+	       </set>
+	    </property>
+	    <property name="impDates">
+	      <set >
+	          <ref bean="dobDt"/>
+	          <ref bean="dojDt"/>
+	          <ref bean="dobDt"/>
+	      </set>
+	    </property>
+	</bean>
+	<bean id="fi"  class="com.nt.beans.FacultyInfo">
+	   <property name="facultySubjects">
+	       <map>
+	         <entry key="hk" value="CoreJava" />
+	         <entry>
+	           <key><value>murali</value></key>
+	           <value>Oracle</value>
+	         </entry>
+	         <entry key="satishB">
+	             <value>Xml -WebServices</value>
+	         </entry>
+	       </map>
+	   </property>
+	   
+	   <property name="facultyDOBs">
+	     <map>
+	       <entry key="hk"  value-ref="dobDt"/>
+	       <entry>
+	          <key><value>murali</value></key>
+	          <ref bean="dojDt"/>
+	       </entry>
+	         <entry key="vijay">
+	          <ref bean="dobDt"/>
+	       </entry>
+	     </map>
+	   </property>
+	</bean>
+	<bean id="fStore"  class="com.nt.beans.FruitStore">
+	     <property name="fruitInfo">
+	       <props>
+	          <prop key="apple">Red</prop>
+	          <prop key="grapes">Black</prop>
+	          <prop key="straberry">red</prop>
+	          <prop key="rossberry">black</prop>
+	       </props>
+	     </property>
+	</bean>
+</beans>

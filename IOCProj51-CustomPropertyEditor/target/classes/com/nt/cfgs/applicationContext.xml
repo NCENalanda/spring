@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- <bean id="ad" class="com.nt.beans.AmountDetails">
+      <property name="pamt"  value="100000"/>
+      <property name="rate"  value="2"/>
+      <property name="time"  value="12"/>
+  </bean>
+  
+  <bean id="iac"  class="com.nt.beans.IntrestAmountCalculator">
+       <property name="details"  ref="ad"/>
+  </bean> -->
+  
+  <bean id="iac"  class="com.nt.beans.IntrestAmountCalculator">
+       <property name="details"  value="100000,12,2"/>
+  </bean>
+  
+  <!-- Cfg CustomEditorConfigurer to  register Custom PropertyEditors -->
+  <bean id="cec" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+       <property name="customEditors">
+         <map>
+            <entry key="com.nt.beans.AmountDetails"  
+                          value="com.nt.editors.AmountDetailsPropertyEditor"/>
+         </map>
+       </property>
+  </bean>
+  
+
+</beans>

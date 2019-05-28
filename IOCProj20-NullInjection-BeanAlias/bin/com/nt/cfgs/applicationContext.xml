@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <bean id="rajaAadharCard"  name="ano1,uid1" class="com.nt.beans.AadharCard">
+     <constructor-arg  name="uid"  value="112344"/>
+     <constructor-arg  name="pname"  value="raja"/>
+     <constructor-arg  name="addrs"  value="hyd"/>
+     <constructor-arg  name="dob" >
+         <bean class="java.util.Date">
+             <property name="year" value="90"/>
+             <property name="month" value="5"/>
+             <property name="date" value="10"/>
+         </bean>
+     </constructor-arg>
+  </bean>
+  
+  <bean  name="ano2,uid2"  class="com.nt.beans.AadharCard">
+     <constructor-arg  name="uid"  value="11442344"/>
+     <constructor-arg  name="pname"  value="nagesh rao"/>
+     <constructor-arg  name="addrs"  value="hyd"/>
+     <constructor-arg name="dob"><null/></constructor-arg>
+  </bean>
+   <alias name="rajaAadharCard" alias="rid1"/>
+  <!--  <alias name="com.nt.beans.AadharCard" alias="rid2"/> -->
+    <alias name="ano2" alias="rid3"/>
+</beans>

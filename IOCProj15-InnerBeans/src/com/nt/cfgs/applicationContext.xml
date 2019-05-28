@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <bean id="kohli"  class="com.nt.beans.BatsMan">
+     <constructor-arg name="bat">
+          <bean   class="com.nt.beans.Bat">
+                <property name="make"  value="SS"/>
+                <property name="type"  value="Regular"/>
+          </bean>
+     </constructor-arg>
+  </bean>
+  
+  </beans>

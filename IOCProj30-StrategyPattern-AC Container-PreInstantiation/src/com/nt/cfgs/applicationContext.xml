@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+   <!-- Cfg Target class -->
+      <bean id="seeker"  class="com.nt.beans.JobSeeker" lazy-init="default" >
+       <property name="course"  ref="jc"/>
+    </bean>
+   <!-- Cfg Depedent classes -->
+   <bean id="jc"   class="com.nt.beans.JavaCourse"  scope="singleton" />
+   <bean id="dc"   class="com.nt.beans.DotNetCourse"  scope="singleton"/>
+   <bean id="ttc"  class="com.nt.beans.TestingToolsCourse" scope="singleton"/>
+   
+   
+ 
+</beans>

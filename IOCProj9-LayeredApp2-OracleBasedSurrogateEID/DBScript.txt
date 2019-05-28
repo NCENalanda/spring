@@ -1,0 +1,6 @@
+SQL> create table spring_Layered_Employee(eno number(5) primary key,
+                                                                                ename varchar2(20),
+                                                                                basicSalary number(10),
+                                                                                grossSalary number(10),
+                                                                                netSalary number(20));
+SQL> create sequence ENO_SEQUENCE Start with 1 increment by 1;                                                                                

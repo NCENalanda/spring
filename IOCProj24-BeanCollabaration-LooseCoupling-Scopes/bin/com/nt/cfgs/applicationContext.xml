@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	  http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	  
+	  <!-- Depedent Beans cfg -->
+	  <bean id="dtdc"  class="com.nt.beans.DTDC"  scope="singleton"/>
+	  <bean id="bDart"  class="com.nt.beans.BlueDart" scope="singleton"/>
+	  <bean id="dhl"  class="com.nt.beans.DHL" scope="singleton"/>
+	  <bean id="ff" class="com.nt.beans.FirstFlight" scope="prototype"/>
+	  
+	  <!-- Target class cfg -->
+	  <bean id="fpkt" class="com.nt.beans.Flipkart" >
+	       <property name="courier"  ref="ff"/>
+	  </bean> 
+	 
+
+</beans>

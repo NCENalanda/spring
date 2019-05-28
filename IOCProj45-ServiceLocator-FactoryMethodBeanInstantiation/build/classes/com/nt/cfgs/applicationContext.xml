@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+  
+   <!-- Service Locator through static factory method bean Instanitation -->
+    <bean id="serviceLocator"  class="com.nt.serviceLocator.ICCScoreCompServiceLocator" factory-method="getExtServiceInstance">
+        <constructor-arg value="iccJndi"/>
+    </bean>	
+    
+    <!-- Local Service class -->
+    <bean id="cbService"  class="com.nt.service.CrickBuzzFindScoreServiceImpl">
+        <property name="extComp"  ref="serviceLocator"/>
+    </bean>
+	
+   
+
+</beans>

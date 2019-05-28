@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+   <!-- Cfg Depedent Bean -->
+      <bean id="engg"  class="com.nt.beans.Engine"/>
+   <!-- Cfg Target Bean -->
+     <bean id="viechle"  class="com.nt.beans.Viechle">
+         <constructor-arg value="engg1"/>
+        <!--  <constructor-arg >
+           <idref  bean="engg1"/>
+         </constructor-arg> -->
+     </bean>
+
+</beans>

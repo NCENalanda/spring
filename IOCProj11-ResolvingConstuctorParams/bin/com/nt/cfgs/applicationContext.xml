@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- Student Bean cfg -->
+   <bean id="st"  class="com.nt.beans.Student">
+        <!-- Resolving constructor params using type -->
+      <constructor-arg  value="rakesh" type="java.lang.String"/>
+      <constructor-arg  value="1001" type="int"/>
+      <constructor-arg  value="89.44f" type="float"/>
+   </bean>
+   
+   <bean id="mk"   class="com.nt.beans.Marks">
+   <constructor-arg value="80"  index="2"/>
+      <constructor-arg value="40" index="0"/>
+      <constructor-arg value="60" index="1"/>
+   </bean>
+   
+   <bean id="cust"  class="com.nt.beans.Customer">
+   <constructor-arg  name="cname" value="raja"/>
+      <constructor-arg  name="cno1" value="1001"/>
+      <constructor-arg  name="addrs" value="hyd"/>
+      <constructor-arg name="billAmt" value="400"/>
+   </bean>
+
+
+</beans>

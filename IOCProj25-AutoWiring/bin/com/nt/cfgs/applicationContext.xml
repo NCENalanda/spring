@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byType" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+ 
+ <bean id="jersy"  class="com.nt.beans.JersyShirt" >
+  <!-- Explicit wiring -->
+    <property name="shirtType" value="fullSleves"/>
+    <property name="shirtSize" value="M"/>
+    <property name="jersyNo" value="10"/>
+ </bean>
+ 
+   <bean id="jersy2"  class="com.nt.beans.JersyShirt" primary="true">
+      <property name="shirtType" value="NoSleves"/>
+    <property name="shirtSize" value="XL"/>
+    <property name="jersyNo" value="100"/>
+ </bean>
+  
+ 
+ <bean id="spPerson"  class="com.nt.beans.SportsPerson"  autowire="constructor"   dependency-check="">
+     <property name="name" value="Sachin"/>
+     <property name="sportType" value="Cricket"/>
+     <constructor-arg  ref="jersy"/>
+ </bean>
+
+
+
+</beans>
