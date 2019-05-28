@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- Cfg Transaction manager   (Local,Flat Txs) -->
+	<bean id="dsTxMgmr"    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource"   ref="dbcpDs"/>
+	</bean>
+	
+	<bean id="nmtas"   class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+	   <property name="properties">
+	      <props>
+	        <prop key="transferMoney">PROPAGATION_REQUIRED</prop>
+	      </props>
+	      
+	   </property>
+	</bean>
+	
+	<!-- Cfg TransactionProxyFactoryBean -->
+	<bean id="tpfb"   class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+	    <property name="target"  ref="bankService"/>
+	    <property name="transactionManager" ref="dsTxMgmr"/>
+<!-- 	     <property name="transactionAttributes">
+	      <props>
+	         <prop key="transferMoney">PROPAGATION_REQUIRED</prop>
+	      </props>
+	    </property> 
+ -->
+        <property name="transactionAttributeSource"  ref="nmtas"/>
+ 
+ 	</bean>
+
+</beans>

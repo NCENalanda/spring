@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+  <!-- target class cfg -->
+  <bean id="approver"  class="com.nt.service.LoanApprover"/>
+  <!-- Advice class cfg -->
+  <bean id="auditAdvice"  class="com.nt.aspect.LoanAuditingAdvice"/>
+  <aop:config>
+     <!-- <aop:pointcut id="ptc" expression="execution(*  com.nt.service.LoanApprover.*(..)) and args(lid,ltype,mgmr)" /> -->
+      <aop:pointcut id="ptc" expression="execution(*  com.nt.service.LoanApprover.*(..))" /> 
+     
+     <aop:aspect ref="auditAdvice">
+       <aop:before method="loanAuditing"  pointcut-ref="ptc"/>
+     </aop:aspect>
+  </aop:config>
+  		
+		
+
+
+</beans>

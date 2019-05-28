@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <alias name="date" alias="dt2"/>
+  <alias name="wmg" alias="w"/>
+ <!--  Dependent Bean cfg -->
+   <bean name="dt,dt1" id="date"  class="java.util.Date"/>
+
+  <!-- Main Bean cfg -->
+   <bean name="wmg,wish" id="wishMessageGenerator"  class="com.nt.beans.WishMessageGenerator">
+       <property name="date1"  ref="dt2" />
+   </bean>
+</beans>

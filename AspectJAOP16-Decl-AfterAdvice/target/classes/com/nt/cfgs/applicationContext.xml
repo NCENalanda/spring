@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+   <!-- cfg Target Bean -->
+   <bean id="shoppingStore"  class="com.nt.service.OnLineShoppingStore"/>
+      <!-- cfg Advice Bean -->
+      <bean id="cuponAdvice"  class="com.nt.aspect.DiscountCuponGenerator"/>
+      <!-- Cfg AspectJAOP -->
+      <aop:config>
+        <aop:pointcut id="ptc1" expression="execution(float com.nt.service.OnLineShoppingStore.s*(..))" />
+         <aop:aspect  ref="cuponAdvice">
+            <aop:after-returning method="generateCupon"  returning="bAmt" pointcut-ref="ptc1"/>
+         </aop:aspect>
+      </aop:config>
+
+</beans>

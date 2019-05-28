@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <servlet>
+      <servlet-name>getScore</servlet-name>
+      <servlet-class>com.nt.controller.GetScoreServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>getScore</servlet-name>
+      <url-pattern>/scoreurl</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

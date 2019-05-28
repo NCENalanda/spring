@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	  http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   <!-- Cfg Target class -->
+	   <bean id="iac"  class="com.nt.target.IntrestAmountCalculator"/>
+	   <!-- Cfg Advice class -->
+	   <bean id="pmAdvice"  class="com.nt.aspect.PerformanceMonitoringAdvice"/>
+	   <bean id="logAdvice"  class="com.nt.aspect.AroundLoggingAdvice"/>
+	   <bean id="cacheAdvice"  class="com.nt.aspect.CacheAdvice"/>
+	   <!-- Cfg ProxyFactoryBean -->
+	   <bean id="pfb"  class="org.springframework.aop.framework.ProxyFactoryBean">
+	     <property name="target"  ref="iac"/>
+	     <property name="interceptorNames">
+	       <list>
+	          <value>cacheAdvice</value>
+	          <value>pmAdvice</value>
+	          <value>logAdvice</value>
+	       </list>
+	     </property>
+	   <!--   <property name="proxyInterfaces">
+	        <list>
+	           <value>com.nt.target.IntrestAmountCalculatorInterface</value>
+	        </list>
+	     </property> -->
+	   </bean>
+</beans>

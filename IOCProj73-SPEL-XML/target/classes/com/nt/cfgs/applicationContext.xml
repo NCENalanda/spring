@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+ <bean id="dt"  class="java.util.Date"/>
+ 
+ <bean id="ord"  class="com.nt.beans.Order">
+   <property name="orderId" value="#{ T(java.lang.Math).random()*100}"/>
+   <property name="orderType"  value="urgent"/>
+   <property name="orderDate"  value="#{dt}"/>
+   <property name="items">
+     <list>
+       <value>roti</value>
+       <value>chicken Curry</value>
+       <value>Kheer</value>
+       <value>Paneer</value>
+     </list>
+   </property>
+   <property name="itemPrices">
+      <map>
+        <entry key="roti"  value="10"/>
+        <entry key="chickenCurry"  value="220"/>
+        <entry key="kheer"  value="110"/>
+        <entry key="Paneer"  value="120"/>
+      </map>
+   </property>
+ 
+ </bean>
+ 
+ <bean id="store"  class="com.nt.beans.ShoppingStore">
+   <property name="order"  value="#{ord}"/>
+   <property name="orderCount"  value="#{ord.items.size()}"/>
+   <property name="orderType"  value="#{ord.orderType}"/>
+   <property name="firstOrderItem"  value="#{ord.items[0]}"/>
+   <property name="totalPrice" value="#{ord.itemPrices['roti']+ord.itemPrices['chickenCurry']+ord.itemPrices['kheer']+ord.itemPrices['Paneer']}"/>
+    <property name="javaVendor" value="#{systemProperties['java.vm.specification.vendor']}"/>
+ </bean>
+
+
+</beans>

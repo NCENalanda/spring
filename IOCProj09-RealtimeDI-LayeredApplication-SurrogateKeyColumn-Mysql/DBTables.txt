@@ -1,0 +1,7 @@
+SQL> create table RealtimeDI_Employee(eno int(6) primary key,autoincrement)
+                                                                            ename varchar(20),
+                                                                             salary float(10,2),
+                                                                             grossSalary float(10,2),
+                                                                             netSalary float(10,2));
+                                                                             
+                                                                          

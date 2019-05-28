@@ -1,0 +1,10 @@
+SQL> select * from medplus_store;
+
+       MID MEDNAME                   PRICE MFGDATE   EXPIRYDAT
+---------- -------------------- ---------- --------- ---------
+         1 paracitamal                  40 12-OCT-17 11-OCT-19
+         2 dispren                      60 12-OCT-17 11-OCT-19
+         3 asprin                       45 12-OCT-17 11-OCT-19
+         5 crosin                       45 13-OCT-17 12-OCT-19
+         6 dolo                         45 14-OCT-17 13-OCT-19
+         7 babazadibhutia syrup         45 14-OCT-17 13-OCT-19

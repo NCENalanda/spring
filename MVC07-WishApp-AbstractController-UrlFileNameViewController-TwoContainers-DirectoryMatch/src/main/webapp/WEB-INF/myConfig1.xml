@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+ <!-- Handler Mapping -->
+ <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+          <props>
+            <prop key="**/nareshit/spring/welcome">pvc1</prop>
+            <prop key="**/nareshit/spring/wish">wmgc</prop>
+            <prop key="**/nareshit/spring/contact_us">pvc2</prop>
+            <prop key="**/nareshit/spring/about_us">pvc3</prop>
+          </props>
+      </property>
+       <property name="alwaysUseFullPath" value="true"/> 
+ </bean>
+ <!-- Controller cfgs -->
+ <bean id="pvc1"  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="welcome"/>
+ </bean>
+ <bean id="pvc2"  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="contact_us"/>
+ </bean>  
+ 
+ <bean id="pvc3"  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="about_us"/>
+ </bean>  
+   
+   <bean id="wmgc"  class="com.nt.controller.WishMessageGeneratorController">
+     <constructor-arg ref="wishService"/> 
+   </bean>
+  <!-- ViewResolver cfg -->
+ <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="prefix" value="/WEB-INF/pages/"/>
+     <property name="suffix" value=".jsp"/>
+ </bean>
+
+</beans>

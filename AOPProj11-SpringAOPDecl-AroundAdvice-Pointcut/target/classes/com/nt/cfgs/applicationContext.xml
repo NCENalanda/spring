@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	  http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	   <!-- Cfg Target class -->
+	   <bean id="iac"  class="com.nt.target.IntrestAmountCalculator"/>
+	   
+	   <!-- Cfg Advice class -->
+	   <bean id="pmAdvice"  class="com.nt.aspect.PerformanceMonitoringAdvice"/>
+	   <bean id="cacheAdvice"  class="com.nt.aspect.CacheAdvice"/>
+	   
+	   <!--  Cfg Poitcut -->
+	   <!-- <bean id="csp"  class="com.nt.pointcut.CommonStaticPointcut"/> -->
+	  <!--  <bean id="nmmp"  class="org.springframework.aop.support.NameMatchMethodPointcut">
+	      <property name="mappedNames">
+	        <array>
+	           <value>calcSimpleIntrAmount</value>
+	        </array>
+	      </property>
+	   </bean> -->
+	   <bean id="cdp" class="com.nt.pointcut.CommonDynaPoitcut"/>
+	   
+	   <!-- Cfg Advisor -->
+	  <!--  <bean id="dpa1"  class="org.springframework.aop.support.DefaultPointcutAdvisor">
+	      <property name="pointcut"  ref="nmmp"/>
+	      <property name="advice"  ref="pmAdvice"/>
+	   </bean>
+	    <bean id="dpa2"  class="org.springframework.aop.support.DefaultPointcutAdvisor">
+	      <property name="pointcut"  ref="nmmp"/>
+	      <property name="advice"  ref="cacheAdvice"/>
+	   </bean>
+	    -->
+	     <bean id="nmmpa1"  class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+	        <property name="advice" ref="pmAdvice"/>
+	        <property name="mappedName"  value="calcSimpleIntrAmount"/>
+	     </bean>
+<!-- 	     <bean id="nmmpa2"  class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+	        <property name="advice" ref="cacheAdvice"/>
+	        <property name="mappedName"  value="calcSimpleIntrAmount"/>
+	     </bean>
+ -->	     <bean id="dpa"  class="org.springframework.aop.support.DefaultPointcutAdvisor">
+	         <constructor-arg ref="cdp"/>
+	         <constructor-arg ref="cacheAdvice"/>
+	     </bean>
+	   
+	   
+	   <!-- Cfg ProxyFactoryBean -->
+	   <bean id="pfb"  class="org.springframework.aop.framework.ProxyFactoryBean">
+	     <property name="target"  ref="iac"/>
+	     <property name="interceptorNames">
+<!-- 	       <list>
+	          <value>dpa2</value>
+	          <value>dpa1</value>
+	       </list>
+ -->
+           <!--  <array>
+              <value>nmmpa2</value>
+              <value>nmmpa1</value>
+            </array>	     -->
+            <array>
+               <value>dpa</value>
+               <value>nmmpa1</value>
+            </array>
+  </property>
+	   </bean>
+</beans>

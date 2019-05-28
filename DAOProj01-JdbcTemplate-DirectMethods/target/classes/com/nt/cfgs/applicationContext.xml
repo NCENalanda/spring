@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- DataSource Cfg -->
+	<!-- <bean id="dbcpDs" class="org.apache.commons.dbcp2.BasicDataSource"> 
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/> <property 
+		name="username" value="SCOTT"/> <property name="password" value="TIGER"/> 
+		</bean> -->
+	<!-- <bean id="c3P0Ds" class="com.mchange.v2.c3p0.ComboPooledDataSource"> 
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/> <property 
+		name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/> <property name="user" 
+		value="SCOTT"/> <property name="password" value="TIGER"/> </bean> -->
+	<bean id="tomcatDs" class="org.apache.tomcat.jdbc.pool.DataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="SCOTT" />
+		<property name="password" value="TIGER" />
+
+	</bean>
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<!-- <property name="dataSource" ref="dbcpDs"/> -->
+		<!-- <property name="dataSource" ref="c3P0Ds" /> -->
+		<property name="dataSource" value="#{tomcatDs}"/>
+	</bean>
+
+	<bean id="empDAO" class="com.nt.dao.EmployeeDAOImpl">
+		<property name="jt" value="#{template}" />
+	</bean>
+
+	<bean id="empService" class="com.nt.service.EmployeeServiceImpl">
+		<property name="dao" ref="empDAO" />
+	</bean>
+
+</beans>

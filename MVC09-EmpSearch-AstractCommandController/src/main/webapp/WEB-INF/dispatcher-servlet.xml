@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+  <!-- Handler Mapping -->
+   <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+         <props>
+            <prop key="home.htm">pvc</prop>
+            <prop key="search.htm">esc</prop>
+         </props>
+      </property>
+   </bean>
+   <!-- Controllers -->
+    <bean id="pvc"  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+         <property name="viewName"  value="search"/>
+    </bean>
+    <bean id="esc"  class="com.nt.controller.EmployeeSearchController">
+        <property name="commandName"  value="empCmd"/>
+        <property name="commandClass"  value="com.nt.command.EmployeeCommand"/>
+        <constructor-arg  ref="empSearchService"/>
+    </bean>
+    
+    <!-- view Resolver -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+  
+
+</beans>

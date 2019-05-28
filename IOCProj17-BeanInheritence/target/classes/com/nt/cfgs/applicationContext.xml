@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- <bean  id="b1"   class="com.nt.beans.Bike">
+         <property name="bikeNo"  value="TSO7EN4797"/>
+          <property name="make"  value="BajajIndia"/> 
+          <property name="engineCC"  value="150CC"/>
+          <property name="color"  value="red"/>
+         <property name="model"  value="pulsorDTS"/>
+        <property name="price"  value="85000"/>
+   </bean>
+   <bean  id="b2"   class="com.nt.beans.Bike">
+         <property name="bikeNo"  value="TSO7EN4787"/>
+          <property name="make"  value="BajajIndia"/> 
+          <property name="engineCC"  value="150CC"/>
+          <property name="color"  value="red"/>
+         <property name="model"  value="pulsorDTS"/>
+        <property name="price"  value="85000"/>
+   </bean> -->
+   
+  <!--  <bean  id="b1"   class="com.nt.beans.Bike">
+         <property name="bikeNo"  value="TSO7EN4797"/>
+          <property name="make"  value="BajajIndia"/> 
+          <property name="engineCC"  value="150CC"/>
+          <property name="color"  value="red"/>
+         <property name="model"  value="pulsorDTS"/>
+        <property name="price"  value="85000"/>
+   </bean>
+   <bean  id="b2"   class="com.nt.beans.Bike" parent="b1" >
+         <property name="bikeNo"  value="TSO7EN4787"/>
+   </bean>
+   <bean  id="b3"   class="com.nt.beans.Bike" parent="b1" >
+         <property name="bikeNo"  value="TSO7EN4777"/>
+         <property name="color" value="black"/>
+   </bean> -->
+   
+    <bean  id="baseBike"   class="com.nt.beans.Bike" abstract="true">
+          <property name="make"  value="BajajIndia"/> 
+          <property name="engineCC"  value="150CC"/>
+         <property name="model"  value="pulsorDTS"/>
+        <property name="price"  value="85000"/>
+   </bean>
+   <bean  id="b1"   class="com.nt.beans.Bike" parent="baseBike" >
+         <property name="bikeNo"  value="TSO7EN4787"/>
+         <property name="color"  value="green"/>
+   </bean>
+   <bean  id="b2"   class="com.nt.beans.Bike" parent="baseBike" >
+         <property name="bikeNo"  value="TSO7EN4737"/>
+         <property name="color" value="black"/>
+   </bean>
+   <bean  id="b3"   class="com.nt.beans.Bike" parent="baseBike" >
+         <property name="bikeNo"  value="TSO7EN4387"/>
+         <property name="color" value="black"/>
+   </bean>
+   
+   
+
+</beans>

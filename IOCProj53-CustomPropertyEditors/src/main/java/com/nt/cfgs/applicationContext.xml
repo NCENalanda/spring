@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans     xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- <bean id="ld"  class="com.nt.beans.LoanDetails">
+      <constructor-arg name="pAmt"  value="100000"/>
+      <constructor-arg name="rate"  value="2"/>
+      <constructor-arg name="time"  value="12"/>
+  </bean>
+  
+  <bean id="biac"  class="com.nt.beans.BankIntrAmountCalculator">
+      <property name="details"  ref="ld"/>
+    </bean>
+   -->
+   
+   <bean id="biac"  class="com.nt.beans.BankIntrAmountCalculator">
+      <property name="details"  value="100000,12,2"/>
+    </bean>
+    
+  
+   
+</beans>

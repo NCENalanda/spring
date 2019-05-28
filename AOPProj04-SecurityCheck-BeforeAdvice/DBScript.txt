@@ -1,0 +1,12 @@
+SQL> desc spring_account;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ACNO                                      NOT NULL NUMBER(5)
+ HOLDER                                             VARCHAR2(20)
+ BALANCE                                            NUMBER(10,2)
+
+SQL> desc userlist;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ UNAME                                     NOT NULL VARCHAR2(10)
+ PASS                                               VARCHAR2(10)

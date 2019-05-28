@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans     xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="aadhar"  class="com.nt.beans.AadharDetails">
+     <property name="name" value="raja"/>
+     <property name="age" value="30"/>
+     <property name="gender"  value="M"/>
+     <property name="googleURL" value="https://google.co.in/search"/>
+     <property name="uid" value="545454545455"/>
+     <property name="dob" value="12-26-1990"/>
+     <property name="photoPath" value="c:/abc/xyz/james.png"/>
+     <property name="verifiers"  value="modi,amitSha"/>
+     <property name="isSingle"  value="true"/>
+     
+    </bean>
+   
+   
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Dependent Beans.. -->
+  <bean id="pEngine"  class="com.nt.beans.PetrolEngine"/>
+  <bean id="dEngine"  class="com.nt.beans.DieselEngine"/>
+  <bean id="cEngine"  class="com.nt.beans.CNGEngine"/>
+  <!-- Target Bean -->
+  <bean id="viechle"   class="com.nt.beans.Viechle">
+      <property name="engine"  ref="pEngine"/>
+  </bean> 
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+  <bean id="dt"  class="java.util.Date">
+      <property name="year" value="90"/>
+      <property name="month" value="11"/>
+      <property name="date" value="20"/>
+  </bean>
+  <bean id="per"  class="com.nt.beans.Person">
+       <property name="pid" value="1001"/>
+       <property name="pname" value="raja"/>
+       <property name="addrs" value="hyd"/>
+        <property name="dob" ref="dt"/> 
+  </bean>
+   <!--  <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> --> 
+   
+   <context:annotation-config/>
+   
+</beans>

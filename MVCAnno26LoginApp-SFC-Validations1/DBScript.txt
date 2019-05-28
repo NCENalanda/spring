@@ -1,0 +1,6 @@
+
+SQL> desc userlist;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ UNAME                                     NOT NULL VARCHAR2(20)
+ PWD                                                VARCHAR2(20)

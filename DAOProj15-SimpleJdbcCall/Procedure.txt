@@ -1,0 +1,12 @@
+create or replace procedure p_authentication(userr in varchar2,pwd in varchar2,result out varchar2)
+as 
+ cnt number;
+begin
+   select count(*) into cnt from userlist where uname=userr and pass=pwd;
+if(cnt<>0) then
+   result:='Valid Credentials';
+else
+  result:='Invalid Credentials';
+end if;
+end;
+/

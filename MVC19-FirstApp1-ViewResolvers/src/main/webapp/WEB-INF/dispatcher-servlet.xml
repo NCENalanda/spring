@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <!-- url handler mapping-->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+       <property name="mappings">
+           <props>
+              <prop key="home.htm">shc</prop>
+              <prop key="date.htm">sdc</prop>
+           </props>
+       </property>
+       <property name="interceptors">
+          <array>
+             <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+          </array>
+       </property>
+    </bean>
+      <!-- Controller class cfg -->
+     <bean id="shc"  class="com.nt.controller.ShowHomeController"/>
+     <bean id="sdc"  class="com.nt.controller.ShowDateController"/>
+   <!-- cfg View Resolver-->
+  <!--  <bean  class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+         <property name="viewClass"  value="org.springframework.web.servlet.view.InternalResourceView"/>
+       <property name="viewClass"  value="org.springframework.web.servlet.view.JstlView"/>
+       <property name="prefix"  value="/WEB-INF/pages/"/>
+       <property name="suffix" value=".jsp"/>
+   </bean> -->
+   <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+        <property name="prefix"  value="/WEB-INF/pages/"/>
+       <property name="suffix" value=".jsp"/>
+   </bean> -->
+   
+   <!-- <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+      <property name="basename"  value="com/nt/commons/views"/>
+   </bean>
+    -->
+     <!-- <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver"/>
+ -->
+ 
+  <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+       <!--  <property name="location"  value="WEB-INF/views.xml"/> -->
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="prefix"  value="/WEB-INF/pages/"/>
+       <property name="suffix"  value=".jsp"/>
+    </bean>
+ 
+   
+   
+   <!-- Properties -->
+   <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+     <property name="basename"  value="com/nt/commons/myfile"/>
+   </bean>
+     <!-- Locale Resolver -->
+     <bean id="localeResolver"  class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+   
+   </beans>

@@ -1,0 +1,5 @@
+SQL> create table RealtimeDI_Employee(eno number(6) primary key,
+                                                                            ename varchar2(20),
+                                                                             salary number(10,2),
+                                                                             grossSalary number(10,2),
+                                                                             netSalary number(10,2));

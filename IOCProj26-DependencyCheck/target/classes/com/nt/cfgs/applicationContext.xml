@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-dependency-check="all"  xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+ <!--  Dependent Bean cfg -->
+  <bean id="material"  class="com.nt.beans.CourseMaterial" dependency-check="simple" >
+      <property name="name"  value=" Essential Spring"/>
+      <property name="pagesCount" value="950"/>
+  </bean>
+  <!-- -Target Bean cfg  -->
+  <bean id="st"  class="com.nt.beans.Student"  dependency-check="none">
+      <property name="sno"  value="1001"/>
+      <property name="sname" value="raja"/>
+       <!-- <property name="material" ref="material"/> -->
+  </bean>
+   
+</beans>

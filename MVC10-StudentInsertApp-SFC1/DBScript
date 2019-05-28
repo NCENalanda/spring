@@ -1,0 +1,5 @@
+SQL> create table SFC_STUDENT(sno number(6) primary key,sname varchar2(20),sadd varchar2(20),course varchar2(10));
+
+Table created.
+
+SQL> create sequence SFC_Sno_Seq start with 1 increment by 1;

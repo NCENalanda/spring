@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dt1" class="java.util.Date" />
+	<bean id="dt2" class="java.util.Date">
+		<property name="year" value="117" />
+		<property name="month" value="11" />
+		<property name="date" value="4" />
+	</bean>
+
+	<bean id="ap" class="com.nt.beans.AsianPaints">
+		<property name="colors">
+			<list>
+				<value>red</value>
+				<value>blue</value>
+				<value>green</value>
+			</list>
+		</property>
+		<property name="impDates">
+			<list>
+				<ref bean="dt1" />
+				<ref bean="dt2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="cr" class="com.nt.beans.ClassRoom">
+		<property name="names">
+			<list>
+				<value>srinivas</value>
+				<value>raja</value>
+				<value>rani</value>
+				<value>srinivas</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="user" class="com.nt.beans.User">
+		<constructor-arg name="phones">
+			<set>
+				<value>9999999999</value>
+				<value>8888888888</value>
+				<value>8888888888</value>
+				<value>7777777777</value>
+			</set>
+		</constructor-arg>
+	</bean>
+  <bean id="faculty"   class="com.nt.beans.Faculty">
+      <property name="facultySubjects">
+             <map>
+                 <entry key="hari" value="CoreJava"/>
+                 <entry>
+                    <key><value>venkatesh</value></key>
+                    <value>CoreJava</value>
+                 </entry>
+                 <entry key="murali">
+                     <value>oracle</value>
+                 </entry>
+             </map>
+      </property>
+      <property name="batchDates">
+        <map>
+           <entry  key="adv.java" value-ref="dt1"/>
+           <entry>
+             <key><value>spring</value></key>
+             <ref bean="dt1"/>
+           </entry>
+           <entry key="RPA">
+             <ref bean="dt2"/>
+           </entry>
+           <entry key="test"  value-ref="ap"></entry>
+        </map>
+      </property>
+  </bean>
+  <bean id="fi"   class="com.nt.beans.FruitInfo">
+      <property name="fruitDetails">
+         <props>
+             <prop key="banana">green</prop>
+              <prop key="apple">green</prop>
+              <prop key="grapes">black</prop>
+              <prop key="orange">orange</prop>
+         </props>
+      </property>
+  </bean>
+  
+ 
+</beans>
