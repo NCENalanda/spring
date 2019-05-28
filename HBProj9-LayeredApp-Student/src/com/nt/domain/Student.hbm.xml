@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+ <hibernate-mapping>
+   <class name="com.nt.domain.Student"  table="HB_LAYERED_STUDENT">
+      <id name="sno"  column="SNO" length="7" type="int">
+         <generator class="increment"/>
+      </id>
+      <property name="sname"  column="SNAME" length="20" not-null="true" type="string"/>
+      <property name="course"  column="COURSE" length="20" not-null="true" type="string"/>
+      <property name="total"  column="TOTAL" length="10" not-null="true" type="int"/>
+      <property name="avg"  column="AVG" length="10" precision="2" not-null="true" type="float"/>
+      <property name="result"  column="RESULT" length="10"  not-null="true" type="string"/>
+   </class>
+ </hibernate-mapping>        
+
+        

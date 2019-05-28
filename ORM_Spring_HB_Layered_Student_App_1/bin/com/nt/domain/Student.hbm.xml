@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nt.domain">
+   <class name="com.nt.domain.Student" table="STUDENT_TAB1">
+     <id name="id" column="SID" type="int" length="7"  /> 
+     <property name="name"  column="NAME" not-null="true" type="string" length="10"/>
+     <property name="rank"  column="RANK" type="int"  length="10"/>
+    
+  </class>
+  </hibernate-mapping>

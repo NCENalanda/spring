@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="MVCStudent_Search_Info_AbstractCommandController">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <property name="context-root" value="MVCStudent_Search_Info_AbstractCommandController"/>
+        <property name="java-output-path" value="/MVCStudent_Search_Info_AbstractCommandController/bin"/>
+    </wb-module>
+</project-modules>

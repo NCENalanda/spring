@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+<!-- HandlerMapping  -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="home.htm">pvc1</prop>
+<prop key="student.htm">pvc2</prop>
+<prop key="stud_insert.htm">stCtrl</prop>
+</props>
+</property>
+</bean>
+
+
+<!-- Controller -->
+<bean id="pvc1" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+
+<bean id="pvc2" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+
+<bean id="stCtrl" class="com.nt.controller.Student_SFController">
+<property name="commandName" value="stCmd"/>
+<property name="commandClass" value="com.nt.command.StudentCommand"/>
+<property name="formView" value="form_student"/>
+<property name="successView" value="form_result"/>
+<property name="sessionForm" value="true"/>
+<property name="validator" ref="stValidator"></property>
+</bean>
+
+<!-- Properties file  -->
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+<property name="basename" value="com/nt/commons/application"></property>
+</bean>
+
+
+<!-- Validator -->
+<bean id="stValidator" class="com.nt.validator.StudentValidator"></bean>
+
+<!-- ViewResolver -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+
+</beans>

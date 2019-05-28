@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- configure the datasource -->
+<bean id="datasourse" class="org.springframework.jndi.JndiObjectFactoryBean">
+<property name="jndiName" value="java:/comp/env/DsJndi"></property>
+</bean>
+<!-- configure the JdbcTemplate -->
+<bean id="tempate" class="org.springframework.jdbc.core.JdbcTemplate">
+<constructor-arg ref="datasourse"></constructor-arg>
+</bean>
+<!-- configure the StudentDao -->
+<bean id="st_dao" class="com.nt.dao.Student_Search_DAOImpl">
+<constructor-arg ref="tempate"></constructor-arg>
+</bean>
+
+</beans>

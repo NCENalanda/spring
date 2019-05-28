@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+<!-- HandlerMapping  -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="home.htm">pvc1</prop>
+<prop key="student.htm">pvc2</prop>
+<prop key="stud_insert.htm">stCtrl_SFC</prop>
+<prop key="all_records.htm">stCtrl_AC</prop>
+<prop key="edit.htm">stCtrl_SFC_EC</prop>
+<prop key="delete.htm">stCtrl_SFC_DC</prop>
+</props>
+</property>
+</bean>
+
+
+<!-- Controller -->
+
+<!-- For Home -->
+<bean id="pvc1" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+
+<!-- For Student Module -->
+<bean id="pvc2" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+
+<!-- For All Records -->
+<bean id="stCtrl_AC" class="com.nt.controller.Student_AllRecords_Controller">
+<constructor-arg ref="stservice"></constructor-arg>
+</bean>
+
+<!-- For Delete & Refresh All Records -->
+<bean id="stCtrl_SFC_DC" class="com.nt.controller.Delete_Student_Controller">
+<constructor-arg ref="stservice"/>
+</bean>
+<!-- For Insert & Refresh All Records -->
+<bean id="stCtrl_SFC" class="com.nt.controller.Student_SFController">
+<property name="commandName" value="stCmd"/>
+<property name="commandClass" value="com.nt.command.StudentCommand"/>
+<property name="formView" value="form_student"/>
+<!-- <property name="successView" value="all_records"/> -->
+<property name="sessionForm" value="true"/>
+<property name="validator" ref="stValidator"></property>
+<constructor-arg ref="stservice"></constructor-arg>
+</bean>
+
+<!-- For Edit & Refresh All Records -->
+
+<bean id="stCtrl_SFC_EC" class="com.nt.controller.Edit_Student_SFController">
+<property name="commandName" value="stCmd"/>
+<property name="commandClass" value="com.nt.command.StudentCommand"/>
+<property name="formView" value="edit_student"></property>
+<property name="sessionForm" value="true"/>
+<property name="validator" ref="stValidator"></property>
+<constructor-arg ref="stservice"/>
+</bean>
+
+<!-- Properties file  -->
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+<property name="basename" value="com/nt/commons/application"></property>
+</bean>
+
+
+<!-- Validator -->
+<bean id="stValidator" class="com.nt.validator.StudentValidator"></bean>
+
+<!-- ViewResolver -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+
+</beans>

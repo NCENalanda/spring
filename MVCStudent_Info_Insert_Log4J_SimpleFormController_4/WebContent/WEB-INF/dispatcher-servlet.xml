@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<!-- Configure the HanderMapping -->
+
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="home.htm">pvc1</prop>
+<prop key="student.htm">pvc2</prop>
+<prop key="stud_insert.htm">st_controller</prop>
+</props>
+</property>
+</bean>
+
+<!-- Cinfigure the controller -->
+
+<bean id="pvc1" class="org.springframework.web.servlet.mvc.ParameterizableViewController"></bean>
+<bean id="pvc2" class="org.springframework.web.servlet.mvc.ParameterizableViewController"></bean>
+
+
+
+<bean id="st_controller" class="com.nt.contoller.Student_Info_Insert_SimpleFormController">
+<!-- set stCommd for Form binding-->
+<property name="commandName" value="stCommd"/>
+<!-- for command Binding -->
+<property name="commandClass" value="com.nt.command.StudentCommand"/>
+<!-- for get Request -->
+<property name="formView" value="form_student" />
+<!-- for post Request -->
+<property name="successView" value="form_result"/>
+<!-- value=true create one object for validation & help in solving in Double Posting Problem -->
+<property name="sessionForm" value="true"></property>
+<constructor-arg ref="st_service"/>
+</bean>
+
+
+
+
+
+<!-- Configure the ViewResolvers -->
+
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"></property>
+</bean>
+</beans>

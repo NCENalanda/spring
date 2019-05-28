@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- dataSourse -->
+
+<bean id="dataSourse" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1522:demo"/>
+<property name="user" value="system"/>
+<property name="password" value="oracle12c"/>
+<property name="initialPoolSize" value="5"/>
+<property name="maxPoolSize" value="10"/>
+</bean>
+
+
+<bean id="stdao" class="com.nt.dao.Student_DAOImpl">
+<constructor-arg  ref="dataSourse"/></bean>
+</beans>

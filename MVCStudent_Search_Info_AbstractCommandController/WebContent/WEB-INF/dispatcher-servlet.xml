@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- Configure the HanderMapping -->
+
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="home.htm">uvc1</prop>
+<prop key="search.htm">uvc2</prop>
+<prop key="student_info.htm">stcc</prop>
+</props></property>
+</bean>
+
+<!-- Configure the Controllers -->
+
+<bean id="stcc" class="com.nt.controller.StudentCommandController">
+<property name="commandName" value="stcmd"></property>
+<property name="commandClass" value="com.nt.command.StudentCommand"></property>
+<constructor-arg ref="st_service"></constructor-arg>
+</bean>
+<bean id="uvc1" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+<bean id="uvc2" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+
+<!--Configure the View Resolver  -->
+
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+
+</beans>

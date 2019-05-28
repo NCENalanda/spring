@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="home.htm">ufvc1</prop>
+<prop key="fregister.htm">fcCtrl</prop>
+</props>
+</property>
+</bean>
+
+<bean id="ufvc1" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="faculty_register"></property>
+</bean>
+
+
+<bean id="pmnr" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+<property name="paramName" value="opt"></property>
+<property name="defaultMethodName" value="invalid"></property>
+</bean>
+
+<bean id="fcCtrl" class="com.nt.controller.Faculty_CURD_MAController">
+<property name="methodNameResolver" ref="pmnr"></property>
+</bean>
+
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+</beans>

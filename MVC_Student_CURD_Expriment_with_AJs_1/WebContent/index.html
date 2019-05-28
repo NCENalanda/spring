@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="bower_components/angular/angular.min.js"/>
+    <script type="text/javascript" src="app.js"/>
+    <script type="text/javascript" src="controller/HomeController.js"/>
+   <!--   <script src="controller/JspController.js"></script> -->
+</head>
+<body ng-app="DemoApp">
+<div ng-controller="HomeController">
+    {{v_1}}<br>
+    <a href="home.htm">Home</a><br>
+</div>
+
+<div ng-controller="JspController">
+    <label style="align-content: center;color: green">Controller Name.</label>{{v_2}}
+    <br><br>
+    <dl>
+        <dt>Status</dt>
+        <dd>{{status}}</dd>
+        <dt>Status Text</dt>
+        <dd>{{statusText}}</dd>
+        <dt>Data</dt>
+        <dd>
+            {{data}}
+        </dd>
+    </dl>
+</div>
+</body>
+</html>

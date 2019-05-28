@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="get_all_student.htm">stctrl</prop>
+<prop key="home.htm">pvc</prop>
+</props>
+</property>
+</bean>
+<bean id="stctrl" class="com.nt.controller.Student_All_Info_AbstractController">
+<constructor-arg ref="stService" />
+</bean>
+<bean id="pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="home"></property>
+</bean>
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"></property>
+</bean>
+</beans>

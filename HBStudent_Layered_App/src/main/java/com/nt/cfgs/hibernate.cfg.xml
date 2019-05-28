@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Hibernate connection properties -->
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property> 
+			<property name="connection.url">jdbc:oracle:thin:@localhost:1522:demo</property> 
+			<property name="connection.username">system</property> <property name="connection.password">oracle12c</property>
+		<!-- Hibernate properties -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		
+		<!-- 
+		<property name="connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+ 		<property name="hikari.minimumIdle">5</property>
+		<property name="hikari.maximumPoolSize">10</property>
+ -->
+ 
+ <!-- C3P0 connection provider -->
+    <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+    <property name="c3p0.max_size">100</property>
+    <property name="c3p0.min_size">10</property>
+    <property name="c3p0.timeout">5000</property>
+    <property name="c3p0.max_statements">100</property>
+    <property name="c3p0.acquire_increment">2</property>
+ 
+		<!-- mapping file cfg -->
+		<mapping resource="com/nt/domain/Student.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

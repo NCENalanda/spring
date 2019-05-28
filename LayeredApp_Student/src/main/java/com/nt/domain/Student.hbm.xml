@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+ <hibernate-mapping>
+   <class name="com.nt.domain.Student"  table="STUDENT_TAB1">
+      <id name="id"  column="SID" length="7" type="int">
+         <generator class="increment"/>
+      </id>
+      <property name="name"  column="NAME" length="10" not-null="true" type="string"/>
+      <property name="rank"  column="RANK" length="10" not-null="true" type="int"/>
+       </class>
+ </hibernate-mapping>        
+
+        

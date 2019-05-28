@@ -1,0 +1,6 @@
+{
+  "name":"App2",
+  "dependencies":{
+    "angular":"~1.5.0"
+  }
+}
